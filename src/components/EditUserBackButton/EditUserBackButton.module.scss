@@ -1,0 +1,33 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/breakpoints' as bp;
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: t.$font-family-manrope;
+  font-size: 20px;
+  font-weight: 600;
+  color: t.$color-secondary;
+  padding-bottom: 40px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: t.$color-text;
+  }
+
+  @include bp.down(bp.$bp-mobile) {
+    font-size: 16px;
+    padding-bottom: 34px;
+  }
+}
+
+.backIcon {
+  flex-shrink: 0;
+  display: block;
+
+  @include bp.down(bp.$bp-mobile) {
+    width: 21px;
+    height: 21px;
+  }
+}

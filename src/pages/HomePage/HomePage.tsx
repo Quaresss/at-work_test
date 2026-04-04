@@ -2,8 +2,8 @@ import { useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchUsers } from '../../api/users';
 import { useUsersStore } from '../../store/usersStore';
-import { UserCard } from '../../components/UserCard';
 import { Loader } from '../../components/Loader';
+import { UsersSection } from '../../components/UsersSection';
 import styles from './HomePage.module.scss';
 
 export const HomePage = () => {
@@ -44,47 +44,24 @@ export const HomePage = () => {
 
   return (
     <div className={styles.page}>
-      <section className={styles.section}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Активные</h2>
-          <div className={styles.divider} />
-        </div>
-        {activeUsers.length > 0 ? (
-          <div className={styles.grid}>
-            {activeUsers.map((user) => (
-              <UserCard
-                key={user.id}
-                user={user}
-                onArchive={archiveUser}
-                onActivate={activateUser}
-                onHide={hideUser}
-              />
-            ))}
-          </div>
-        ) : (
-          <p className={styles.empty}>Нет активных пользователей</p>
-        )}
-      </section>
+      <UsersSection
+        title="Активные"
+        users={activeUsers}
+        emptyText="Нет активных пользователей"
+        onArchive={archiveUser}
+        onActivate={activateUser}
+        onHide={hideUser}
+      />
 
       {archivedUsers.length > 0 && (
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Архив</h2>
-            <div className={styles.divider} />
-          </div>
-          <div className={styles.grid}>
-            {archivedUsers.map((user) => (
-              <UserCard
-                key={user.id}
-                user={user}
-                isArchived
-                onArchive={archiveUser}
-                onActivate={activateUser}
-                onHide={hideUser}
-              />
-            ))}
-          </div>
-        </section>
+        <UsersSection
+          title="Архив"
+          users={archivedUsers}
+          isArchived
+          onArchive={archiveUser}
+          onActivate={activateUser}
+          onHide={hideUser}
+        />
       )}
     </div>
   );

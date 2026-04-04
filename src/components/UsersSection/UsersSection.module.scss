@@ -1,0 +1,55 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/breakpoints' as bp;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-family: t.$font-family-manrope;
+  font-size: 24px;
+  font-weight: 600;
+  color: t.$color-text;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: t.$color-border;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 360px);
+  gap: 32px 40px;
+
+  @include bp.down(bp.$bp-xl) {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+  }
+
+  @include bp.down(bp.$bp-mobile) {
+    grid-template-columns: repeat(3, 162px);
+    justify-content: space-between;
+  }
+
+  @include bp.down(bp.$bp-mobile-sm) {
+    grid-template-columns: repeat(2, 162px);
+    gap: 20px;
+    justify-content: space-between;
+  }
+}
+
+.empty {
+  color: t.$color-muted;
+  font-size: 14px;
+  padding: 20px 0;
+}

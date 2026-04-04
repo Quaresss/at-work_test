@@ -1,3 +1,5 @@
+@use '../../styles/tokens' as t;
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -10,8 +12,8 @@
 .spinner {
   width: 36px;
   height: 36px;
-  border: 3px solid #dadada;
-  border-top-color: #22a0bc;
+  border: 3px solid t.$color-border;
+  border-top-color: t.$color-accent;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
@@ -23,8 +25,8 @@
 }
 
 .text {
-  font-family: 'Manrope', sans-serif;
+  font-family: t.$font-family-manrope;
   font-size: 14px;
-  color: #9c9c9c;
+  color: t.$color-muted;
   font-weight: 500;
 }

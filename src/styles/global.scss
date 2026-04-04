@@ -1,3 +1,5 @@
+@use './tokens' as t;
+
 *,
 *::before,
 *::after {
@@ -13,9 +15,9 @@ html {
 }
 
 body {
-  font-family: 'Manrope', 'Inter', system-ui, sans-serif;
-  background-color: #f4f4f4;
-  color: #161616;
+  font-family: t.$font-family-main;
+  background-color: t.$color-bg;
+  color: t.$color-text;
   min-height: 100vh;
   line-height: 1.5;
 }

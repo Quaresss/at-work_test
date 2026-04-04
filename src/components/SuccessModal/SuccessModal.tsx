@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import crossIcon from '../../assets/icons/cross.svg';
+import successIcon from '../../assets/icons/success.svg';
 import styles from './SuccessModal.module.scss';
 
 interface SuccessModalProps {
@@ -13,12 +15,26 @@ export const SuccessModal = ({ onClose }: SuccessModalProps) => {
     return () => clearTimeout(timer);
   }, [onClose]);
 
+  useEffect(() => {
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+    };
+  }, []);
+
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.close} onClick={onClose}>
-          ✕
+        <button type="button" className={styles.close} onClick={onClose} aria-label="Закрыть">
+          <img src={crossIcon} alt="" className={styles.closeIcon} width={24} height={24} />
         </button>
+        <img src={successIcon} alt="" className={styles.successIcon} width={84} height={84} />
         <p className={styles.message}>Изменения сохранены!</p>
       </div>
     </div>

@@ -1,3 +1,6 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/breakpoints' as bp;
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -10,41 +13,73 @@
 }
 
 .modal {
-  background: #fdfdfd;
+  background: t.$color-surface;
   border-radius: 12px;
-  padding: 40px 48px;
+  width: 310px;
+  height: 211px;
+  padding: 40px;
   position: relative;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   text-align: center;
-  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
   animation: slideUp 0.2s ease;
+
+  @include bp.down(bp.$bp-mobile) {
+    width: 271px;
+    height: 189px;
+    padding: 32px;
+    gap: 16px;
+  }
 }
 
 .close {
   position: absolute;
   top: 14px;
   right: 18px;
-  font-size: 16px;
-  color: #9c9c9c;
   width: 28px;
   height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: background-color 0.15s, color 0.15s;
+  transition: background-color 0.15s, opacity 0.15s;
 
   &:hover {
-    color: #161616;
-    background-color: #f4f4f4;
+    .closeIcon {
+      opacity: 1;
+    }
   }
 }
 
+.closeIcon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  object-fit: contain;
+  opacity: 0.55;
+  transition: opacity 0.15s;
+}
+
+.successIcon {
+  width: 84px;
+  height: 84px;
+  display: block;
+  object-fit: contain;
+}
+
 .message {
-  font-family: 'Manrope', sans-serif;
-  font-size: 18px;
+  font-family: t.$font-family-manrope;
+  font-size: 20px;
   font-weight: 600;
-  color: #161616;
+  color: t.$color-secondary;
+
+  @include bp.down(bp.$bp-mobile) {
+    font-size: 18px;
+  }
 }
 
 @keyframes fadeIn {

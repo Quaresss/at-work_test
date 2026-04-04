@@ -1,0 +1,77 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/breakpoints' as bp;
+
+.formCard {
+  flex: 1;
+  background: t.$color-surface;
+  border-radius: t.$radius-lg;
+  padding: 40px;
+  width: 100%;
+
+  @include bp.down(bp.$bp-mobile) {
+    padding: 28px;
+  }
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: t.$font-family-manrope;
+  font-size: 24px;
+  font-weight: 600;
+  color: t.$color-text;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: t.$color-border;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 420px;
+
+  @include bp.down(bp.$bp-mobile) {
+    max-width: 100%;
+  }
+}
+
+.submitBtn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 42px;
+  background-color: t.$color-text;
+  color: t.$color-bg;
+  border-radius: t.$radius-pill;
+  font-family: t.$font-family-manrope;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.15s, color 0.15s;
+
+  &:hover {
+    background-color: t.$color-bg;
+    color: t.$color-text;
+  }
+
+  @include bp.down(bp.$bp-mobile) {
+    font-size: 14px;
+    width: 100%;
+  }
+}

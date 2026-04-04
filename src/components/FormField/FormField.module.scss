@@ -1,3 +1,6 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/breakpoints' as bp;
+
 .field {
   display: flex;
   flex-direction: column;
@@ -5,49 +8,57 @@
 }
 
 .label {
-  font-family: 'Manrope', sans-serif;
+  font-family: t.$font-family-manrope;
   font-size: 18px;
   font-weight: 600;
-  color: #161616;
+  color: t.$color-text;
+
+  @include bp.down(bp.$bp-mobile) {
+    font-size: 16px;
+  }
 }
 
 .input {
   height: 42px;
   padding: 0 16px;
-  border: 2px solid #dadada;
-  border-radius: 9999px;
-  font-family: 'Manrope', sans-serif;
+  border: 2px solid t.$color-border;
+  border-radius: t.$radius-pill;
+  font-family: t.$font-family-manrope;
   font-size: 16px;
   font-weight: 500;
-  color: #161616;
+  color: t.$color-text;
   outline: none;
   background-color: transparent;
   transition: border-color 0.2s;
 
   &:focus {
-    border-color: #595959;
+    border-color: t.$color-secondary;
   }
 
   &::placeholder {
-    color: #9c9c9c;
+    color: t.$color-muted;
+  }
+
+  @include bp.down(bp.$bp-mobile) {
+    font-size: 14px;
   }
 }
 
 .inputError {
-  border-color: #ef1c31;
+  border-color: t.$color-error;
 
   &:focus {
-    border-color: #ef1c31;
+    border-color: t.$color-error;
   }
 }
 
 .inputDone {
-  border-color: #595959;
+  border-color: t.$color-secondary;
 }
 
 .error {
-  font-family: 'Manrope', sans-serif;
+  font-family: t.$font-family-manrope;
   font-size: 12px;
-  color: #ef1c31;
+  color: t.$color-error;
   line-height: 1.3;
 }

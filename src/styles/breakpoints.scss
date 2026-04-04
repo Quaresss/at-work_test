@@ -1,0 +1,10 @@
+$bp-xl: 1200px;
+$bp-tablet: 1024px;
+$bp-mobile: 768px;
+$bp-mobile-sm: 576px;
+
+@mixin down($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}

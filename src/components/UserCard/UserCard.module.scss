@@ -1,14 +1,17 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/breakpoints' as bp;
+
 .card {
   display: flex;
-  background: #fdfdfd;
-  border-radius: 16px;
+  background: t.$color-surface;
+  border-radius: t.$radius-lg;
   padding: 24px;
   align-items: center;
   gap: 20px;
   width: 100%;
   min-height: 168px;
 
-  @media (max-width: 768px) {
+  @include bp.down(bp.$bp-mobile) {
     flex-direction: column;
     align-items: stretch;
     max-width: 162px;
@@ -22,11 +25,11 @@
 .avatar {
   width: 112px;
   height: 120px;
-  border-radius: 8px;
+  border-radius: t.$radius-md;
   object-fit: cover;
   flex-shrink: 0;
 
-  @media (max-width: 768px) {
+  @include bp.down(bp.$bp-mobile) {
     width: 130px;
     height: 120px;
   }
@@ -55,52 +58,52 @@
 
 .username {
   flex: 1;
-  font-family: 'Manrope', sans-serif;
+  font-family: t.$font-family-manrope;
   font-size: 20px;
   font-weight: 600;
-  color: #22a0bc;
+  color: t.$color-accent;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  @media (max-width: 768px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 18px;
   }
 }
 
 .usernameArchived {
-  color: #595959;
+  color: t.$color-secondary;
 }
 
 .company {
-  font-family: 'Manrope', sans-serif;
+  font-family: t.$font-family-manrope;
   font-size: 16px;
   font-weight: 500;
-  color: #595959;
+  color: t.$color-secondary;
 
-  @media (max-width: 768px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 14px;
   }
 }
 
 .companyArchived {
-  color: #9c9c9c;
+  color: t.$color-muted;
 }
 
 .city {
-  font-family: 'Manrope', sans-serif;
+  font-family: t.$font-family-manrope;
   font-size: 14px;
   font-weight: 400;
-  color: #9c9c9c;
+  color: t.$color-muted;
 
-  @media (max-width: 768px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 10px;
     font-weight: 600;
   }
 }
 
 .cityArchived {
-  color: #dadada;
+  color: t.$color-border;
 }
 
 .dropdownWrapper {
@@ -115,11 +118,11 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border-radius: 4px;
-  color: #161616;
+  border-radius: t.$radius-xs;
+  color: t.$color-text;
   transition: background-color 0.15s, color 0.15s;
 
-  @media (max-width: 768px) {
+  @include bp.down(bp.$bp-mobile) {
     width: 16px;
     height: 16px;
 
@@ -129,8 +132,16 @@
     }
   }
 
+  &:hover:not(.menuBtnOpen) {
+    color: t.$color-accent;
+  }
+}
+
+.menuBtnOpen {
+  color: t.$color-secondary;
+
   &:hover {
-    color: #22a0bc;
+    color: t.$color-secondary;
   }
 }
 
@@ -141,8 +152,8 @@
   top: 100%;
   right: 0;
   margin-top: 4px;
-  background: #fdfdfd;
-  border-radius: 8px;
+  background: t.$color-surface;
+  border-radius: t.$radius-md;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   padding: 8px;
   z-index: 10;
@@ -155,7 +166,7 @@
     height: auto;
   }
 
-  @media (max-width: 768px) {
+  @include bp.down(bp.$bp-mobile) {
     width: 160px;
     height: 137px;
     padding: 8px;
@@ -171,18 +182,18 @@
   width: 100%;
   padding: 8px 12px;
   text-align: left;
-  font-family: 'Manrope', sans-serif;
+  font-family: t.$font-family-manrope;
   font-size: 16px;
   font-weight: 500;
-  color: #161616;
-  border-radius: 6px;
+  color: t.$color-text;
+  border-radius: t.$radius-sm;
   transition: background-color 0.12s, color 0.12s;
 
   &:hover {
-    color: #22a0bc;
+    color: t.$color-accent;
   }
 
-  @media (max-width: 768px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 14px;
   }
 }
