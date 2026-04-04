@@ -1,29 +1,31 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
 }
 
 .label {
   font-family: 'Manrope', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #595959;
+  font-size: 18px;
+  font-weight: 600;
+  color: #161616;
 }
 
 .input {
-  padding: 12px 14px;
-  border: 1px solid #dadada;
-  border-radius: 8px;
+  height: 42px;
+  padding: 0 16px;
+  border: 2px solid #dadada;
+  border-radius: 9999px;
   font-family: 'Manrope', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 500;
   color: #161616;
   outline: none;
-  background-color: #fdfdfd;
+  background-color: transparent;
   transition: border-color 0.2s;
 
   &:focus {
-    border-color: #22a0bc;
+    border-color: #595959;
   }
 
   &::placeholder {
@@ -40,7 +42,7 @@
 }
 
 .inputDone {
-  border-color: #22a0bc;
+  border-color: #595959;
 }
 
 .error {

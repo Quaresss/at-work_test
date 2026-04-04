@@ -90,11 +90,12 @@
 .city {
   font-family: 'Manrope', sans-serif;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   color: #9c9c9c;
 
   @media (max-width: 768px) {
     font-size: 10px;
+    font-weight: 600;
   }
 }
 
@@ -115,7 +116,8 @@
   justify-content: center;
   flex-shrink: 0;
   border-radius: 4px;
-  transition: background-color 0.15s;
+  color: #161616;
+  transition: background-color 0.15s, color 0.15s;
 
   @media (max-width: 768px) {
     width: 16px;
@@ -128,43 +130,63 @@
   }
 
   &:hover {
-    background-color: #f4f4f4;
+    color: #22a0bc;
   }
 }
 
 .dropdown {
   position: absolute;
+  width: 200px;
+  height: 146px;
   top: 100%;
   right: 0;
   margin-top: 4px;
   background: #fdfdfd;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  min-width: 160px;
-  padding: 4px 0;
+  padding: 8px;
   z-index: 10;
   animation: fadeIn 0.12s ease;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-.dropdownItem {
-  display: block;
-  width: 100%;
-  padding: 10px 16px;
-  text-align: left;
-  font-family: 'Manrope', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #161616;
-  transition: background-color 0.12s;
+  &:has(> :only-child) {
+    height: auto;
+  }
 
-  &:hover {
-    background-color: #f4f4f4;
+  @media (max-width: 768px) {
+    width: 160px;
+    height: 137px;
+    padding: 8px;
+
+    &:has(> :only-child) {
+      height: auto;
+      justify-content: flex-start;
+    }
   }
 }
 
-.dropdownItemDanger {
-  color: #ef1c31;
+.dropdownItem {
+  width: 100%;
+  padding: 8px 12px;
+  text-align: left;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #161616;
+  border-radius: 6px;
+  transition: background-color 0.12s, color 0.12s;
+
+  &:hover {
+    color: #22a0bc;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
+
 
 @keyframes fadeIn {
   from {

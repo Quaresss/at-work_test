@@ -67,70 +67,85 @@ export const EditUserPage = () => {
   return (
     <div className={styles.page}>
       <button className={styles.back} onClick={() => navigate('/')}>
-        Назад
+        <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.125 10.5H0.875" stroke="#595959" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M7 16.625L0.875 10.5L7 4.375" stroke="#595959" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+        <span>Назад</span>
       </button>
 
       <div className={styles.content}>
-        <aside className={styles.sidebar}>
-          {SIDEBAR_TABS.map((tab) => (
-            <button
-              key={tab}
-              className={`${styles.sidebarTab} ${activeTab === tab ? styles.sidebarTabActive : ''}`}
-              onClick={() => setActiveTab(tab)}
-            >
-              {tab}
-            </button>
-          ))}
-        </aside>
+          <aside className={styles.sidebar}>
+            <img
+              src={`https://i.pravatar.cc/560?img=${user.id}`}
+              alt={user.username}
+              className={styles.profilePhoto}
+            />
 
-        <div className={styles.formCard}>
-          <h2 className={styles.title}>Данные профиля</h2>
+            <nav className={styles.sidebarNav}>
+              {SIDEBAR_TABS.map((tab) => (
+                <button
+                  key={tab}
+                  className={`${styles.sidebarTab} ${activeTab === tab ? styles.sidebarTabActive : ''}`}
+                  onClick={() => setActiveTab(tab)}
+                >
+                  {tab}
+                </button>
+              ))}
+            </nav>
+          </aside>
 
-          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-            <div className={styles.fields}>
-              <FormField
-                label="Имя"
-                registration={register('name')}
-                error={errors.name?.message}
-                isDirty={dirtyFields.name}
-              />
-              <FormField
-                label="Никнейм"
-                registration={register('username')}
-                error={errors.username?.message}
-                isDirty={dirtyFields.username}
-              />
-              <FormField
-                label="Почта"
-                registration={register('email')}
-                error={errors.email?.message}
-                isDirty={dirtyFields.email}
-              />
-              <FormField
-                label="Город"
-                registration={register('city')}
-                error={errors.city?.message}
-                isDirty={dirtyFields.city}
-              />
-              <FormField
-                label="Телефон"
-                registration={register('phone')}
-                error={errors.phone?.message}
-                isDirty={dirtyFields.phone}
-              />
-              <FormField
-                label="Название компании"
-                registration={register('companyName')}
-                error={errors.companyName?.message}
-                isDirty={dirtyFields.companyName}
-              />
+          <div className={styles.formCard}>
+            <div className={styles.titleBlock}>
+              <h2 className={styles.title}>Данные профиля</h2>
+              <div className={styles.divider} />
             </div>
 
-            <button type="submit" className={styles.submitBtn}>
-              Сохранить
-            </button>
-          </form>
-        </div>
+            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+              <div className={styles.fields}>
+                <FormField
+                  label="Имя"
+                  registration={register('name')}
+                  error={errors.name?.message}
+                  isDirty={dirtyFields.name}
+                />
+                <FormField
+                  label="Никнейм"
+                  registration={register('username')}
+                  error={errors.username?.message}
+                  isDirty={dirtyFields.username}
+                />
+                <FormField
+                  label="Почта"
+                  registration={register('email')}
+                  error={errors.email?.message}
+                  isDirty={dirtyFields.email}
+                />
+                <FormField
+                  label="Город"
+                  registration={register('city')}
+                  error={errors.city?.message}
+                  isDirty={dirtyFields.city}
+                />
+                <FormField
+                  label="Телефон"
+                  registration={register('phone')}
+                  error={errors.phone?.message}
+                  isDirty={dirtyFields.phone}
+                />
+                <FormField
+                  label="Название компании"
+                  registration={register('companyName')}
+                  error={errors.companyName?.message}
+                  isDirty={dirtyFields.companyName}
+                />
+              </div>
+
+              <button type="submit" className={styles.submitBtn}>
+                Сохранить
+              </button>
+            </form>
+          </div>
       </div>
 
       {showModal && (
