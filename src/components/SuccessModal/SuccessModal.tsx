@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import crossIcon from '../../assets/icons/cross.svg';
 import successIcon from '../../assets/icons/success.svg';
+import { useBodyScrollLock } from '../../hooks/useBodyScrollLock';
 import styles from './SuccessModal.module.scss';
 
 interface SuccessModalProps {
@@ -15,18 +16,7 @@ export const SuccessModal = ({ onClose }: SuccessModalProps) => {
     return () => clearTimeout(timer);
   }, [onClose]);
 
-  useEffect(() => {
-    const previousBodyOverflow = document.body.style.overflow;
-    const previousHtmlOverflow = document.documentElement.style.overflow;
-
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
-
-    return () => {
-      document.body.style.overflow = previousBodyOverflow;
-      document.documentElement.style.overflow = previousHtmlOverflow;
-    };
-  }, []);
+  useBodyScrollLock();
 
   return (
     <div className={styles.overlay} onClick={onClose}>
