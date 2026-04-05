@@ -7,6 +7,7 @@ interface UsersState {
   hiddenIds: Set<number>;
 
   setUsers: (users: User[]) => void;
+  updateUser: (user: User) => void;
   archiveUser: (id: number) => void;
   activateUser: (id: number) => void;
   hideUser: (id: number) => void;
@@ -18,6 +19,13 @@ export const useUsersStore = create<UsersState>((set) => ({
   hiddenIds: new Set(),
 
   setUsers: (users) => set({ users }),
+
+  updateUser: (user) =>
+    set((state) => ({
+      users: state.users.map((existingUser) =>
+        existingUser.id === user.id ? user : existingUser,
+      ),
+    })),
 
   archiveUser: (id) =>
     set((state) => {

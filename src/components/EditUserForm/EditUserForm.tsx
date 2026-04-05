@@ -19,7 +19,7 @@ export const EditUserForm = ({ register, errors, dirtyFields, onSubmit }: EditUs
         <div className={styles.divider} />
       </div>
 
-      <form className={styles.form} onSubmit={onSubmit}>
+      <form className={styles.form} onSubmit={onSubmit} noValidate>
         <div className={styles.fields}>
           <FormField
             label="Имя"
@@ -48,6 +48,7 @@ export const EditUserForm = ({ register, errors, dirtyFields, onSubmit }: EditUs
           <FormField
             label="Телефон"
             registration={register('phone')}
+            inputMode="numeric"
             error={errors.phone?.message}
             isDirty={dirtyFields.phone}
           />
