@@ -36,7 +36,11 @@ export const UserCard = ({
 
   return (
     <div className={styles.card}>
-      <img className={styles.avatar} src={avatarUrl} alt={user.username} />
+      <img
+        className={`${styles.avatar} ${isArchived ? styles.avatarArchived : ''}`}
+        src={avatarUrl}
+        alt={user.username}
+      />
       <div className={styles.content}>
         <div className={styles.top}>
           <div className={styles.usernameRow}>
