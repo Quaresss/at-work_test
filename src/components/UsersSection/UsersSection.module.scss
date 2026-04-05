@@ -28,23 +28,28 @@
 
 .grid {
   display: grid;
+  width: 100%;
+  max-width: min(100%, 1160px);
   grid-template-columns: repeat(3, 360px);
-  gap: 32px 40px;
+  row-gap: 32px;
+  justify-content: space-between;
+  margin-inline: auto;
 
   @include bp.down(bp.$bp-xl) {
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: space-between;
+    max-width: min(100%, 760px);
+    grid-template-columns: repeat(2, 360px);
   }
 
   @include bp.down(bp.$bp-mobile) {
+    max-width: min(100%, 526px);
     grid-template-columns: repeat(3, 162px);
-    justify-content: space-between;
+    row-gap: 20px;
   }
 
   @include bp.down(bp.$bp-mobile-sm) {
+    max-width: min(100%, 344px);
     grid-template-columns: repeat(2, 162px);
-    gap: 20px;
-    justify-content: space-between;
+    row-gap: 20px;
   }
 }
 
