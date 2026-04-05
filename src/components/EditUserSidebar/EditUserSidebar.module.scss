@@ -75,4 +75,8 @@
 .sidebarTabActive {
   font-weight: 600;
   color: t.$color-text;
+
+  &:hover {
+    color: t.$color-text;
+  }
 }
