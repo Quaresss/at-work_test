@@ -93,7 +93,9 @@ export const EditUserPage = () => {
 
   return (
     <div className={styles.page}>
-      <EditUserBackButton onClick={() => navigate('/')} />
+      <div className={styles.topBar}>
+        <EditUserBackButton onClick={() => navigate('/')} />
+      </div>
 
       <div className={styles.content}>
         <EditUserSidebar

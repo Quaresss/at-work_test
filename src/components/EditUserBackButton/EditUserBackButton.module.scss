@@ -9,7 +9,6 @@
   font-size: 20px;
   font-weight: 600;
   color: t.$color-secondary;
-  padding-bottom: 40px;
   transition: color 0.2s;
 
   &:hover {
@@ -18,16 +17,11 @@
 
   @include bp.down(bp.$bp-mobile) {
     font-size: 16px;
-    padding-bottom: 34px;
+    gap: 14px;
   }
 }
 
 .backIcon {
   flex-shrink: 0;
   display: block;
-
-  @include bp.down(bp.$bp-mobile) {
-    width: 21px;
-    height: 21px;
-  }
 }

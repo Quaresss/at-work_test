@@ -14,7 +14,7 @@
 
 .modal {
   background: t.$color-surface;
-  border-radius: 12px;
+  border-radius: t.$radius-lg;
   width: 310px;
   height: 211px;
   padding: 40px;
@@ -38,14 +38,13 @@
 
 .close {
   position: absolute;
-  top: 14px;
+  top: 18px;
   right: 18px;
   width: 28px;
   height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   transition: background-color 0.15s, opacity 0.15s;
 
   &:hover {

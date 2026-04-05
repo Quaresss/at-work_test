@@ -11,7 +11,7 @@
   flex-direction: column;
   gap: 40px;
 
-  @include bp.down(bp.$bp-tablet) {
+  @include bp.down(bp.$bp-mobile) {
     width: 100%;
   }
 
@@ -23,17 +23,17 @@
 
 .profilePhoto {
   width: 100%;
+  max-width: 280px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: t.$radius-md;
   background-color: t.$color-bg;
+  align-self: center;
 
   @include bp.down(bp.$bp-mobile) {
-    width: min(100%, 287px);
-    height: 187px;
-    aspect-ratio: unset;
-    object-fit: cover;
-    align-self: center;
+    max-width: none;
+    aspect-ratio: 287 / 187;
+    align-self: stretch;
   }
 }
 
