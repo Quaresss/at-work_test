@@ -16,8 +16,7 @@ export const userFormSchema = z.object({
     .max(64, 'Максимум 64 символа'),
   phone: z
     .string()
-    .regex(/^[\d\s()+\-x]+$/i, 'Только цифры')
-    .refine((value) => /\d/.test(value), 'Только цифры'),
+    .regex(/^\d+$/, 'Только цифры'),
   companyName: z
     .string()
     .min(2, 'Минимум 2 символа')

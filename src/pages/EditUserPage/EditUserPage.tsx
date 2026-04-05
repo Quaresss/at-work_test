@@ -68,7 +68,7 @@ export const EditUserPage = () => {
       name: data.name,
       username: data.username,
       email: data.email,
-      phone: data.phone.replace(/\D/g, ''),
+      phone: data.phone,
       address: {
         ...user.address,
         city: data.city,
